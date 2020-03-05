@@ -1,0 +1,29 @@
+.rss-item {
+    width: 100%;
+    display: block;
+    padding: 1em;
+    margin-bottom: .5em;
+    border: 1px solid #d8d8d8;
+    border-radius: 3px;
+}
+
+.rss-item:hover {
+    background-color: #d8d8d8;
+}
+
+.rss-item__title {
+    font-weight: bold;
+    font-size: large;
+}
+
+.rss-item__description {
+    color: #333333;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.rss-item__published {
+    color: #333333;
+    text-align: right;
+}

@@ -1,0 +1,38 @@
+// https://dbdiagram.io/d/5e5d4d3d4495b02c3b87ad09
+Table teams {
+  id int [pk]
+  name varchar(255) [not null]
+  
+  admin_id int [ref: - users.id, note: "Grants the user additional privileges within the team"]
+  
+  created_at timestamp [default: `now()`]
+  updated_at timestamp
+  deleted_at timestamp
+}
+
+Table users {
+  id int [pk]
+  team_id int [ref: > teams.id, not null]
+  name varchar(255) [not null]
+  email varchar(255) [unique, not null]
+  password varchar(255) [not null]
+
+  created_at timestamp [default: `now()`]
+  updated_at timestamp
+  deleted_at timestamp
+}
+
+Table feeds {
+  id int [pk]
+  team_id int [ref:> teams.id, not null]
+  name varchar(255) [not null]
+  source varchar(255) [not null]
+  
+  created_by int [ref: - users.id]
+  updated_by int [ref: - users.id]
+  deleted_by int [ref: - users.id]
+  
+  created_at timestamp [default: `now()`]
+  updated_at timestamp
+  deleted_at timestamp
+}
